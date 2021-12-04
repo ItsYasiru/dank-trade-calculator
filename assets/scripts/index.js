@@ -1,12 +1,10 @@
-var command = "";
-
 var converstions = {
     "k": 1000,
     "m": 1000000
 };
 
-function copyCommand() {
-    navigator.clipboard.writeText(command);
+function copyToClipboard(content) {
+    navigator.clipboard.writeText(content);
 }
 
 function convertPrice(price) {
@@ -73,8 +71,9 @@ $("#calculate").click(function () {
     var items = filterItemList(itemList);
 
     var total = 0;
-    var output = "";
-    command = "";
+
+    var itemsFound = "";
+    var itemsNotFound = ""
 
     for (const [item, amount] of Object.entries(items)) {
         var found = false;
@@ -84,20 +83,20 @@ $("#calculate").click(function () {
                 found = true;
 
                 total += amount * price;
-                output += `\nFound '${item}' ${formatNo(amount)} x ${formatNo(price)} = ${formatNo(amount * price)} ⏣`;
+                itemsFound += `Found '${item}' ${formatNo(amount)} x ${formatNo(price)} = ${formatNo(amount * price)} ⏣\n`;
                 command += ` ${amount} ${item}`;
                 break;
             }
         }
         if (found == false) {
-            output += `\nCouldn't find '${item}'`
+            itemsNotFound += `Couldn't find price for '${item}'\n`
         }
     }
 
-    command = `pls trade ${command}, ${total}`;
-    output = `Total value of the item list, ${formatNo(total)} ⏣ \nTrade command coppied to clipboard!\n` + output;
+    var command = `pls trade ${command}, ${total}`;
+    var output = `Total value of the item list, ${formatNo(total)} ⏣ \nTrade command coppied to clipboard!\n\n${itemsFound}\n${itemsNotFound}`;
 
+    copyToClipboard(command);
     $('#output').val(output);
     $('#output').removeClass('hidden');
-    copyCommand();
 });
