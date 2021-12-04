@@ -73,7 +73,7 @@ $("#calculate").click(function () {
     var total = 0;
 
     var itemsFound = "";
-    var itemsNotFound = ""
+    var itemsNotFound = "";
 
     for (const [item, amount] of Object.entries(items)) {
         var found = false;
