@@ -17,9 +17,17 @@ body {
   padding: 0;
 }
 
-row {
-  margin-bottom: 20px !important;
-  padding: 20px !important;
+.row {
+  margin-top: 10px !important;
+}
+
+.col {
+  height: 100%;
+  text-align: center;
+}
+
+h3 {
+  padding: 10px 0;
 }
 
 textarea {
@@ -28,28 +36,19 @@ textarea {
   padding: 10px 20px;
   text-align: left;
   resize: none !important;
-  width: 100%;
-  height: 100%;
+  min-width: 100%;
+  min-height: 400px;
 }
 
-button {
+#calculate {
+  position: fixed;
+  width: 100px;
+  left: 50%;
+  bottom: 10px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   border: 1px black solid;
-  border-radius: 5px;
   padding: 5px 15px;
-}
-
-.output {
-  display: inline;
-}
-
-.output p {
-  display: block;
-  margin-right: auto;
-}
-
-.output button {
-  display: block;
-  margin-left: auto;
 }
 
 .debug {
@@ -58,10 +57,6 @@ button {
 
 .hidden {
   display: none;
-}
-
-.col {
-  text-align: center;
 }
 
 .left {

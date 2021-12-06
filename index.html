@@ -14,28 +14,32 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2mlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
     <div class="container">
-        <row class="row">
-            <div class="col col-sm">
+        <div class="row">
+            <div class="col col-xl col-ml sm-12">
                 <h3>Price list</h3>
-                <textarea id="price-list" placeholder=
-"Paste your price list here. Smart price conversion is supported. (100k = 100,000) Make sure item names are standard names. Example,
+                <textarea type="text" autocomplete="on" id="price-list" placeholder=
+"Paste your price list here. Smart price conversion is supported.
+Make sure item names are standard names and item names and prices are seperated by a '-'. Spaces in between are omitted. Example,
 
-Common fish - 100 ❌
+Common Fish - 1k ✅
+Common Fish - 1.5k ✅
+
 common fish - 100 ❌
 Common Fish - 100 ✅
 
-Bread 100 ❌
-Bread - 100 ✅" rows="15" cols="50"></textarea>
+Common Fish 100 ❌
+Common Fish        -     100 ✅
+Common Fish - 100 ✅"></textarea>
             </div>
-            <div class="col col-sm">
+            <div class="col col-xl col-ml col-sm-12">
                 <h3>Item list</h3>
-                <textarea id="item-list" placeholder=
+                <textarea type="text" autocomplete="on" id="item-list" placeholder=
 "Run 'pls sell' and paste raw data here. Example,
 
 x35  :Ant: Ant (⏣ 79,800)
@@ -45,20 +49,14 @@ x2  :deer~1: Deer (⏣ 9,120)
 x1  :Dragon: Dragon (⏣ 68,400)
 x7  :petduck: Duck (⏣ 27,930)
 x4  :exoticfish: Exotic Fish (⏣ 45,600)
-x21  :commonfish: Common Fish (⏣ 35,910)" rows="15" cols="50"></textarea>
+x21  :commonfish: Common Fish (⏣ 35,910)"></textarea>
             </div>
-        </row>
-
-        <row class="row">
-            <div class="col col-sm">
-                <button id="calculate">Calculate</button>
+            <div id="recipt" class="hidden col col-xl col-ml">
+                <h3>Recipt</h3>
+                <textarea id="output" divs="8" readonly></textarea>
             </div>
-        </row>
-        <row class="row">
-            <div class="col col-sm">
-                <textarea class="hidden" id="output" rows="8" readonly></textarea>
-            </div>
-        </row>
+            <button id="calculate">Calculate</button>
+        </div>
     </div>
 
     <script src="./assets/scripts/index.js"></script>
