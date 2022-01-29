@@ -56,7 +56,7 @@ function filterItemList(itemList) {
 
             var originalPrice = parts.slice(-1)[0];
             originalPrice = originalPrice.replace(")", "");
-            originalPrice = originalPrice.replace(",", "");
+            originalPrice = originalPrice.replaceAll(",", "");
             originalPrice = parseInt(originalPrice);
 
             result[item] = {
