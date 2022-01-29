@@ -103,13 +103,13 @@ $("#calculate").click(function () {
 
                 total += data.amount * price;
                 originalTotal += data.originalPrice;
-                itemsFound.push(`${item} ${formatNo(data.amount)} x ${formatNo(price)} = ${formatNo(data.amount * price)} ⏣ (${formatNo(data.originalPrice)} ⏣)`);
+                itemsFound.push(`${item} ${formatNo(data.amount)} x ${formatNo(price)} = ${formatNo(data.amount * price)} (⏣ ${formatNo(data.originalPrice)})`);
                 itemsList.push(item);
                 break;
             }
         }
         if (found == false) {
-            itemsNotFound.push(`${item} ${formatNo(data.amount)} x 0 = 0 ⏣ (${formatNo(data.originalPrice)} ⏣)`);
+            itemsNotFound.push(`${item} ${formatNo(data.amount)} x 0 = 0 ⏣ (${formatNo(data.originalPrice)})`);
         }
     }
 
